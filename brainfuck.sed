@@ -22,18 +22,13 @@ x
 t loop
 : loop
 
-p
-x
-p
-x
-
 # end of execution. print the output stream buffer
 /@$/ {
   b output
 }
 
 /@+/ {
-  i\
+#  i\
 ### INCR
 
   x
@@ -48,7 +43,7 @@ x
 }
 
 /@-/ {
-  i\
+#  i\
 ### DECR
 
   x
@@ -73,7 +68,7 @@ x
 }
 
 /@>/ {
-  i\
+#  i\
 ### NEXT
 
   x
@@ -92,7 +87,7 @@ x
 }
 
 /@</ {
-  i\
+#  i\
 ### PREV
 
   x
@@ -104,7 +99,7 @@ x
 }
 
 /@\./ {
-  i\
+#  i\
 ### PUTC
 
   x
@@ -116,7 +111,7 @@ x
 }
 
 /@\[/ {
-  i\
+#  i\
 ### OPEN
 
   x
@@ -150,7 +145,7 @@ x
 }
 
 /@\]/ {
- i\
+# i\
 ### CLOSE
 
   # 'c' is bracket close counter
@@ -212,7 +207,6 @@ s/|a/B/g
 s/|/A/g
 
 s/\(..\)/|\1/g
-
 
 s/|AB//g
 s/|AC//g
