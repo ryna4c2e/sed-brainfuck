@@ -22,12 +22,20 @@ x
 t loop
 : loop
 
+p
+x
+p
+x
+
 # end of execution. print the output stream buffer
 /@$/ {
   b output
 }
 
 /@+/ {
+  i\
+### INCR
+
   x
   # increment!
   s/@1*/&1/
@@ -40,8 +48,8 @@ t loop
 }
 
 /@-/ {
-# i\
-# decr
+  i\
+### DECR
 
   x
   # decrement if possible
@@ -52,6 +60,9 @@ t loop
 }
 
 /@>/ {
+  i\
+### NEXT
+
   x
 
   # append '|' if neccesary
@@ -68,6 +79,9 @@ t loop
 }
 
 /@</ {
+  i\
+### PREV
+
   x
 
   s/|\(1*\)@/@\1|/
@@ -77,6 +91,9 @@ t loop
 }
 
 /@\./ {
+  i\
+### PUTC
+
   x
 
   s/^[|1]*@\(1*\)[|1]*\n[|1]*$/&|\1/
@@ -86,8 +103,8 @@ t loop
 }
 
 /@\[/ {
-# i\
-# open
+  i\
+### OPEN
 
   x
 
@@ -120,8 +137,8 @@ t loop
 }
 
 /@\]/ {
-# i\
-# close
+ i\
+### CLOSE
 
   # 'c' is bracket close counter
   s/^/c/
